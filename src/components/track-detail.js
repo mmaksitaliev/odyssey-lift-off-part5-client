@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from 'react'
+import styled from '@emotion/styled'
 import {
   colors,
   Button,
@@ -7,15 +7,15 @@ import {
   IconView,
   IconTime,
   IconBook,
-} from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from '@reach/router';
-import ContentSection from './content-section';
-import MarkDown from './md-content';
+} from '../styles'
+import { humanReadableTimeFromSeconds } from '../utils/helpers'
+import { Link } from '@reach/router'
+import ContentSection from './content-section'
+import MarkDown from './md-content'
 
 /**
  * Track Detail component renders the main content of a given track:
- * author, length, number of views, modules list, among other things.
+ * author, durationInSeconds, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
 const TrackDetail = ({ track }) => {
@@ -24,11 +24,11 @@ const TrackDetail = ({ track }) => {
     description,
     thumbnail,
     author,
-    length,
+    durationInSeconds,
     modulesCount,
     modules,
     numberOfViews,
-  } = track;
+  } = track
 
   return (
     <ContentSection>
@@ -50,7 +50,7 @@ const TrackDetail = ({ track }) => {
             </IconAndLabel>
             <IconAndLabel>
               <IconTime width="14px" />
-              <div>{humanReadableTimeFromSeconds(length)}</div>
+              <div>{humanReadableTimeFromSeconds(durationInSeconds)}</div>
             </IconAndLabel>
           </DetailItem>
           <DetailItem>
@@ -78,7 +78,7 @@ const TrackDetail = ({ track }) => {
                 <li key={module.title}>
                   <div>{module.title}</div>
                   <ModuleLength>
-                    {humanReadableTimeFromSeconds(module.length)}
+                    {humanReadableTimeFromSeconds(module.durationInSeconds)}
                   </ModuleLength>
                 </li>
               ))}
@@ -88,10 +88,10 @@ const TrackDetail = ({ track }) => {
       </TrackDetails>
       <MarkDown content={description} />
     </ContentSection>
-  );
-};
+  )
+}
 
-export default TrackDetail;
+export default TrackDetail
 
 /** Track detail styled components */
 const CoverImage = styled.img({
@@ -99,12 +99,12 @@ const CoverImage = styled.img({
   maxHeight: 400,
   borderRadius: 4,
   marginBottom: 30,
-});
+})
 
 const StyledLink = styled(Link)({
   textDecoration: 'none',
   color: 'white',
-});
+})
 
 const TrackDetails = styled.div({
   display: 'flex',
@@ -125,7 +125,7 @@ const TrackDetails = styled.div({
     marginBottom: 5,
     color: colors.text,
   },
-});
+})
 
 const DetailRow = styled.div({
   display: 'flex',
@@ -136,7 +136,7 @@ const DetailRow = styled.div({
   paddingBottom: 20,
   marginBottom: 20,
   borderBottom: `solid 1px ${colors.silver.dark}`,
-});
+})
 
 const DetailItem = styled.div({
   display: 'flex',
@@ -145,7 +145,7 @@ const DetailItem = styled.div({
   justifyContent: 'space-between',
   color: colors.textSecondary,
   alignSelf: 'center',
-});
+})
 
 const AuthorImage = styled.img({
   height: 30,
@@ -153,12 +153,12 @@ const AuthorImage = styled.img({
   marginBottom: 8,
   borderRadius: '50%',
   objectFit: 'cover',
-});
+})
 
 const AuthorName = styled.div({
   lineHeight: '1em',
   fontSize: '1em',
-});
+})
 
 const IconAndLabel = styled.div({
   display: 'flex',
@@ -175,7 +175,7 @@ const IconAndLabel = styled.div({
   '#viewCount': {
     color: colors.pink.base,
   },
-});
+})
 
 const ModuleListContainer = styled.div({
   width: '100%',
@@ -191,9 +191,9 @@ const ModuleListContainer = styled.div({
       paddingBottom: 2,
     },
   },
-});
+})
 
 const ModuleLength = styled.div({
   marginLeft: 30,
   color: colors.grey.light,
-});
+})
